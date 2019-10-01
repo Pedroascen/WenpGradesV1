@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+      <!--th:include="components/styleA::stylA"-->
+   
+	<head th:include="components/styleA::stylA">
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividades</title>
+    </head>
+    
+	<body th:fragment="content">
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form" th:action="@{/actividades/modificar}" method="post">
+				<span class="contact100-form-title">
+					MODIFICAR ACTIVIDAD
+				</span>
+				<div>
+					<input th:value="${item.id_actividad}" id="id_actividad" class="input100" type="hidden" name="id_actividad">
+					<span class="focus-input100"></span>
+				</div>
+				
+				<label class="label-input100" for="id_nota">Nota:</label>
+				<div class="wrap-input100 rs1 validate-input">
+					<select name="nota" id="nota" class="form-control">
+                            <div th:each="n:${notas}">
+                            <option th:if="${n.id_nota==item.nota.id_nota}" selected th:value="${n.id_nota}" th:text="${n.nota}"></option>
+                            <option th:if="${n.id_nota!=item.nota.id_nota}" th:value="${n.id_nota}" th:text="${i.nota}"></option>
+                            </div>
+                        </select>
+					<span class="focus-input100"></span>
+                </div>
+				<label class="label-input100" for="nombre">Nombre:</label>
+				<div class="wrap-input100 rs1 validate-input">
+					<input th:value="${item.nombre}" id="nombre" class="input100" type="text" name="nombre" placeholder="Digitar nombre">
+					<span class="focus-input100"></span>
+                </div>
+                <label class="label-input100" for="descripcion">Descripción:</label>
+				<div class="wrap-input100 rs1 validate-input">
+					<input th:value="${item.descripcion}" id="descripcion" class="input100" type="text" name="descripcion" placeholder="Digitar descripción">
+					<span class="focus-input100"></span>
+                </div>
+                <label class="label-input100" for="ponderacion">Ponderación:</label>
+				<div class="wrap-input100 rs1 validate-input">
+					<input th:value="${item.ponderacion}" id="ponderacion" class="input100" type="text" name="ponderacion" placeholder="Digitar ponderación">
+					<span class="focus-input100"></span>
+                </div>
+                               				
+				<button  type="submit" class="btn btn-outline-success" id="aceptar">Guardar</button>
+				<a class="btn btn-outline-danger" href="/actividades/index" role="button" id="cancelar">Cancelar</a>			
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>

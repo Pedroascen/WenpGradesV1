@@ -1,0 +1,56 @@
+<!DOCTYPE html >
+	<!-- implementacion de la plantilla -->
+<html xmlns:th="http://www.thymeleaf.org">
+   
+    <head th:include="components/styleA::stylA">
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nota</title>
+    </head>
+    
+	<body th:fragment="content">
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form" action="/instituciones/modificar" method="post">
+				<span class="contact100-form-title">
+					MODIFICAR NOTA
+				</span>
+				
+				
+				<div>
+					<input th:value="${item.id_nota}" id="id_nota" class="input100" type="hidden" name="id_nota">
+					<span class="focus-input100"></span>
+                </div>
+				<label class="label-input100" for="id_grupoEstudiante">Grupo-Estudiante:</label>
+				<div class="wrap-input100 rs1 validate-input">
+					<select name="grupoestudiante"" id="grupoestudiante" class="form-control">
+						<div th:each="g:${grupoestudiantes"}">
+                            <option th:if="${g.id_grupoEstudiante==item.grupoestudiante.id_grupoEstudiantes}" selected th:value="${g.id_grupoEstudiantes}" th:text="${g.id_grupoEstudiante}"></option>
+                        	<option th:if="${g.id_grupoEstudiantes!=item.grupoestudiante.id_grupoEstudiantes}"   th:value="${g.id_grupoEstudiantes}" th:text="${g.id_grupoEstudiantes}"></option>
+                        </div>
+                    </select>
+					<span class="focus-input100"></span>
+                </div>
+				<label class="label-input100" for="fecha">Fecha:</label>
+				<div class="wrap-input100 rs1 validate-input">
+					<input th:value="${item.fecha}" id="fecha" class="input100" type="date" name="fecha">
+					<span class="focus-input100"></span>
+                </div>
+                <label class="label-input100" for="nota">Nota:</label>
+				<div class="wrap-input100 rs1 validate-input">
+					<input th:value="${item.nota}" id="nota" class="input100" type="text" name="nota">
+					<span class="focus-input100"></span>
+                </div>
+                <label class="label-input100" for="observaciones">Observaciones:</label>
+				<div class="wrap-input100 rs1 validate-input">
+					<input th:value="${item.observaciones}" id="observaciones" class="input100" type="text" name="observaciones">
+					<span class="focus-input100"></span>
+                </div>
+                               				
+				<button  type="submit" class="btn btn-outline-success" id="aceptar">Guardar</button>
+				<a class="btn btn-outline-danger" href="/notas/index" role="button" id="cancelar">Cancelar</a>			
+			</form>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html >
+	<!-- implementacion de la plantilla -->
+<html xmlns:th="http://www.thymeleaf.org">   
+     <head th:include="components/styleA::stylA">
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo</title>
+    </head>
+    
+	<body th:fragment="content">
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form" action="@{/grupos/modificar}" method="post">
+				<span class="contact100-form-title">
+					MODIFICAR GRUPO
+				</span>
+				
+				
+				<div>
+					<input th:value="${item.id_grupo}" id="id_grupo" class="input100" type="hidden" name="id_grupo">
+					<span class="focus-input100"></span>
+                </div>
+                
+				<label class="label-input100" for="id_materia">Materia:</label>
+				<div class="wrap-input100 rs1 validate-input">
+					<select name="materia" id="materia" class="form-control">
+						    <div th:each="m:${materias}">
+                            <option th:if="${m.id_materia==item.materia.id_materia}" selected th:value="${m.id_materia}" th:text="${m.nombre}"></option>
+                        	<option th:if="${m.id_materia!=item.materia.id_materia}"   th:value="${m.id_materia}" th:text="${m.nombre}"></option>
+                        </div>
+                    </select>
+                    <span class="focus-input100"></span>
+                </div>
+				<label class="label-input100" for="nombre">Grupo:</label>
+				<div class="wrap-input100 rs1 validate-input">
+					<input th:value="${item.grupo}" id="grupo" class="input100" type="text" name="grupo">
+					<span class="focus-input100"></span>
+                </div>
+                       				
+				<button  type="submit" class="btn btn-outline-success" id="aceptar">Guardar</button>
+                <button  type="button" class="btn btn-outline-danger" href="/grupos/index" id="cancelar">Cancelar</button>			
+			</form>
+		</div>
+	</div>
+</body>
+</html>

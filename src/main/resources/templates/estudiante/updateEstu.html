@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+      <!--th:include="components/styleA::stylA"-->
+   
+	<head th:include="components/styleA::stylA">
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudiantes</title>
+    </head>
+    
+	<body th:fragment="content">
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form" th:action="@{/estudiantes/modificar}" method="post">
+				<span class="contact100-form-title">
+					MODIFICAR ESTUDIANTE
+				</span>
+				<div>
+					<input th:value="${item.id_estudiante}" id="id_estudiante" class="input100" type="hidden" name="id_estudiante">
+					<span class="focus-input100"></span>
+				</div>
+				
+				<label class="label-input100" for="id_institucion">Institución:</label>
+				<div class="wrap-input100 rs1 validate-input">
+					<select name="institucion" id="institucion" class="form-control">
+                            <div th:each="i:${instituciones}">
+                            <option th:if="${i.id_institucion==item.institucion.id_institucion}" selected th:value="${i.id_institucion}" th:text="${i.nombre}"></option>
+                            <option th:if="${i.id_institucion!=item.institucion.id_institucion}" th:value="${i.id_institucion}" th:text="${i.nombre}"></option>
+                            </div>
+                        </select>
+					<span class="focus-input100"></span>
+                </div>
+				<label class="label-input100" for="nombre">Nombre:</label>
+				<div class="wrap-input100 rs1 validate-input">
+					<input th:value="${item.nombre}" id="nombre" class="input100" type="text" name="nombre" placeholder="Digitar nombre">
+					<span class="focus-input100"></span>
+                </div>
+                <label class="label-input100" for="direccion">Apellido:</label>
+				<div class="wrap-input100 rs1 validate-input">
+					<input th:value="${item.apellido}" id="apellido" class="input100" type="text" name="apellido" placeholder="Digitar dirección">
+					<span class="focus-input100"></span>
+                </div>
+                <label class="label-input100" for="telefono">Teléfono:</label>
+				<div class="wrap-input100 rs1 validate-input">
+					<input th:value="${item.telefono}" id="telefono" class="input100" type="tel" name="telefono" placeholder="Digitar teléfono">
+					<span class="focus-input100"></span>
+                </div>
+                <label class="label-input100" for="email">Correo eléctronico:</label>
+				<div class="wrap-input100 rs1 validate-input">
+					<input th:value="${item.email}" id="email" class="input100" type="email" name="email" placeholder="Digitar correo eléctronico">
+					<span class="focus-input100"></span>
+                </div>
+                				
+				<button  type="submit" class="btn btn-outline-success" id="aceptar">Guardar</button>
+				<a class="btn btn-outline-danger" href="/estudiantes/index" role="button" id="cancelar">Cancelar</a>			
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>

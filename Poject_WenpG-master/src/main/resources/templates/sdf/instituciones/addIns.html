@@ -1,0 +1,59 @@
+<!DOCTYPE html >
+	<!-- implementacion de la plantilla -->
+<html xmlns:th="http://www.thymeleaf.org" 
+      th:include="layouts/layout2::plantilla2">
+   
+    <head>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institucion</title>
+    </head>
+    
+	<body th:fragment="content">
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form" action="/instituciones/guardar" method="post">
+				<span class="contact100-form-title">
+					AGREGAR INSTITUCIÓN
+				</span>
+				
+				<label class="label-input100" for="id_usuario">Usuario:</label>
+				<div class="wrap-input100 rs1 validate-input">
+					<select name="usuario" id="usuario" class="form-control">
+                            <option th:each="u:${usuarios}" th:value="${u.id_usuario}" th:text="${u.nombre}"></option>
+                        </select>
+					<span class="focus-input100"></span>
+                </div>
+				<label class="label-input100" for="nombre">Nombre de la institución:</label>
+				<div class="wrap-input100 rs1 validate-input">
+					<input id="nombre" class="input100" type="text" name="nombre" placeholder="Digitar nombre">
+					<span class="focus-input100"></span>
+                </div>
+                <label class="label-input100" for="direccion">Dirección:</label>
+				<div class="wrap-input100 rs1 validate-input">
+					<input id="direccion" class="input100" type="text" name="direccion" placeholder="Digitar dirección">
+					<span class="focus-input100"></span>
+                </div>
+                <label class="label-input100" for="telefono">Teléfono:</label>
+				<div class="wrap-input100 rs1 validate-input">
+					<input id="telefono" class="input100" type="text" name="telefono" placeholder="Digitar teléfono">
+					<span class="focus-input100"></span>
+                </div>
+                <label class="label-input100" for="email">Correo eléctronico:</label>
+				<div class="wrap-input100 rs1 validate-input">
+					<input id="email" class="input100" type="email" name="email" placeholder="Digitar correo eléctronico">
+					<span class="focus-input100"></span>
+                </div>
+                <label class="label-input100" for="codigo">Código de la institución:</label>
+				<div class="wrap-input100 rs1 validate-input">
+					<input id="codigo" class="input100" type="text" name="codigo" placeholder="Digitar código de la institución">
+					<span class="focus-input100"></span>
+                </div>
+                				
+				<button  type="submit" class="btn btn-outline-success" id="aceptar">Guardar</button>
+                <button  type="button" class="btn btn-outline-danger" id="cancelar">Cancelar</button>			
+			</form>
+		</div>
+	</div>
+</body>
+</html>
