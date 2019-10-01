@@ -32,7 +32,7 @@ public class Usuario{
 	private String usuario;
 	
 	@NotNull(message = "campo requerido")
-	private String contraseña;
+	private String pass;
 	
 	@JoinColumn(name="id_rol",referencedColumnName = "id_rol",nullable = false)
 	@ManyToOne(optional = false,fetch = FetchType.EAGER)
@@ -50,7 +50,7 @@ public class Usuario{
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.usuario = usuario;
-		this.contraseña = contraseña;
+		this.pass = contraseña;
 	}
 
 	public Integer getId_usuario() {
@@ -85,12 +85,12 @@ public class Usuario{
 		this.usuario = usuario;
 	}
 
-	public String getContraseña() {
-		return contraseña;
+	public String getPass() {
+		return pass;
 	}
 
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setPass(String pass) {
+		this.pass = pass;
 	}
 
 	public Rol getRol() {

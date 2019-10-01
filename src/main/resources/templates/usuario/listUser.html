@@ -30,19 +30,19 @@
 			   <th>Eliminar</th>
             </tr>
           </thead>
-
-           <!--Ejemplos de tablas-->
-           <tbody>
-           <tr>
-            <td>1</td>
-            <td>Maistro</td>
-            <td>Alex</td>
-            <td>Ascencio</td>
-            <td>Pedro@gmail.com</td>
-            <td>soyyosiempre</td>
-            <th><button type="button" class="btn btn-outline-primary">Editar</button></th>
-            <th><button type="button" class="btn btn-outline-danger">Eliminar</button></th>
-          </tr>
+			<tbody>
+           <!-- Estructira repetitiva para recorrer el listado que viene en
+		variable 'items', esta el el foreach -->
+			<tr th:each="i : ${items}">
+				<td th:text="${i.id_usuario}"></td>
+				<td th:text="${i.rol.rol}"></td>
+				<td th:text="${i.nombre}"></td>
+				<td th:text="${i.apellido}"></td>
+				<td th:text="${i.usuario}"></td>
+				<td th:text="${i.pass}"></td>
+				<td> <a name="modificar" id="modificar" class="btn btn-outline-success" th:href="@{'/usuarios/modificar/' + ${i.id_usuario}}" role="button">Modificar</a></td>
+				<td> <a name="eliminar" id="eliminar" class="btn btn-outline-danger" th:href="@{'/usuarios/eliminar/' + ${i.id_usuario}}"  role="button">Eliminar</a></td>
+			</tr>
         </tbody>
           </table>
           </div>

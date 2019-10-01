@@ -3,7 +3,6 @@ package com.cds.proyecto.controladores;
 import java.util.List;
 
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import com.cds.proyecto.entidades.Rol;
 import com.cds.proyecto.entidades.Usuario;
 import com.cds.proyecto.repositorios.IRolRepository;
@@ -37,12 +35,12 @@ public class UsuarioController {
 	@GetMapping("guardar")
 	public String Guardar(Model model) {
 		List<Rol> roles=(List<Rol>) erRol.findAll();
-		model.addAttribute("usuarios", roles);
+		model.addAttribute("roles", roles);
 		return "/usuario/addUser";
 	}
 	
 	@PostMapping(value="guardar")
-	public String guardar(@RequestParam String nombre, @RequestParam String apellido, @RequestParam String usuario, @RequestParam String contraseña, @RequestParam Integer rol) {
+	public String guardar(@RequestParam String nombre, @RequestParam String apellido, @RequestParam String usuario, @RequestParam String pass, @RequestParam Integer rol) {
 		
 		@Valid Usuario u=new Usuario();
 		
@@ -51,9 +49,7 @@ public class UsuarioController {
 		u.setNombre(nombre);
 		u.setApellido(apellido);
 		u.setUsuario(usuario);
-		u.setContraseña(contraseña);
-		
-		
+		u.setPass(pass);		
 		erUsuario.save(u);
 		return "redirect:/usuarios/index";
 	}
@@ -68,9 +64,9 @@ public class UsuarioController {
 	 }
 	
 	 @PostMapping(value="modificar")
-	 public String modificar(@RequestParam Integer id_usuario, @RequestParam String nombre, @RequestParam String apellido, @RequestParam String usuario, @RequestParam String contraseña, @RequestParam Integer rol){
+	 public String modificar(@RequestParam Integer id_usuario, @RequestParam String nombre, @RequestParam String apellido, @RequestParam String usuario, @RequestParam String pass, @RequestParam Integer rol){
 		  
-		  Usuario u=new Usuario(id_usuario, nombre, apellido, usuario, contraseña);
+		  Usuario u=new Usuario(id_usuario, nombre, apellido, usuario, pass);
 	      
 		  
 		  Rol r=erRol.findById(rol).get();

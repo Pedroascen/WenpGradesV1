@@ -55,7 +55,9 @@ public class GrupoController {
 	 }
 	@PostMapping(value="modificar")
 	 public String modificar(@RequestParam Integer id_grupo,@RequestParam Integer materia, @RequestParam String grupo){
-		  Grupo e=new Grupo(id_grupo,grupo);
+		  Grupo e=new Grupo();
+		  e.setId_grupo(id_grupo);
+		  e.setGrupo(grupo);
 	      Materia m=erMateria.findById(materia).get();
 		  e.setMateria(m);	 
 		  erGrupo.save(e);

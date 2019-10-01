@@ -10,7 +10,7 @@
 	<body th:fragment="content">
 	<div class="container-contact100">
 		<div class="wrap-contact100">
-			<form class="contact100-form validate-form" action="@{/grupos/modificar}" method="post">
+			<form class="contact100-form validate-form" th:action="@{/grupos/modificar}" method="post">
 				<span class="contact100-form-title">
 					MODIFICAR GRUPO
 				</span>
@@ -38,7 +38,7 @@
                 </div>
                        				
 				<button  type="submit" class="btn btn-outline-success" id="aceptar">Guardar</button>
-                <button  type="button" class="btn btn-outline-danger" href="/grupos/index" id="cancelar">Cancelar</button>			
+                <a role="button" class="btn btn-outline-danger" th:href="@{/grupos/index}" id="cancelar">Cancelar</a>			
 			</form>
 		</div>
 	</div>
