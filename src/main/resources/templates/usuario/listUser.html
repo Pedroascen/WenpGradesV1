@@ -12,7 +12,7 @@
     <div class="card mb-3">
     <div class="card-header">
       <i class="fas fa-table"></i>
-      Tabla de Datos/ Usuario <button type="button" class="btn btn-primary btn ml-1 mr-5 my-0 my-md-0"> Agregar</button>
+      Tabla de Datos/ Usuario <a class="btn btn-outline-info btn-lg" th:href="@{/usuarios/guardar}" role="button" id="nuevo">Nuevo</a>
       </div>
       
       <div class="card-body">
@@ -39,7 +39,7 @@
 				<td th:text="${i.nombre}"></td>
 				<td th:text="${i.apellido}"></td>
 				<td th:text="${i.usuario}"></td>
-				<td th:text="${i.pass}"></td>
+				<td th:text="${i.password}"></td>
 				<td> <a name="modificar" id="modificar" class="btn btn-outline-success" th:href="@{'/usuarios/modificar/' + ${i.id_usuario}}" role="button">Modificar</a></td>
 				<td> <a name="eliminar" id="eliminar" class="btn btn-outline-danger" th:href="@{'/usuarios/eliminar/' + ${i.id_usuario}}"  role="button">Eliminar</a></td>
 			</tr>

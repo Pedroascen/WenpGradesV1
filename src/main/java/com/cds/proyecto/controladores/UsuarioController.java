@@ -40,7 +40,7 @@ public class UsuarioController {
 	}
 	
 	@PostMapping(value="guardar")
-	public String guardar(@RequestParam String nombre, @RequestParam String apellido, @RequestParam String usuario, @RequestParam String pass, @RequestParam Integer rol) {
+	public String guardar(@RequestParam String nombre, @RequestParam String apellido, @RequestParam String usuario, @RequestParam String password, @RequestParam Integer rol) {
 		
 		@Valid Usuario u=new Usuario();
 		
@@ -49,7 +49,7 @@ public class UsuarioController {
 		u.setNombre(nombre);
 		u.setApellido(apellido);
 		u.setUsuario(usuario);
-		u.setPass(pass);		
+		u.setPassword(password);		
 		erUsuario.save(u);
 		return "redirect:/usuarios/index";
 	}
@@ -64,9 +64,9 @@ public class UsuarioController {
 	 }
 	
 	 @PostMapping(value="modificar")
-	 public String modificar(@RequestParam Integer id_usuario, @RequestParam String nombre, @RequestParam String apellido, @RequestParam String usuario, @RequestParam String pass, @RequestParam Integer rol){
+	 public String modificar(@RequestParam Integer id_usuario, @RequestParam String nombre, @RequestParam String apellido, @RequestParam String usuario, @RequestParam String password, @RequestParam Integer rol){
 		  
-		  Usuario u=new Usuario(id_usuario, nombre, apellido, usuario, pass);
+		  Usuario u=new Usuario(id_usuario, nombre, apellido, usuario, password);
 	      
 		  
 		  Rol r=erRol.findById(rol).get();
