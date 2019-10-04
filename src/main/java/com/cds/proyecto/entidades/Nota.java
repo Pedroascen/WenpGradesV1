@@ -22,7 +22,7 @@ public class Nota {
 	private Integer id_nota;
 	
     private String fecha;
-    private String nota;
+    private Double nota;
     private String observaciones;
     
     @JoinColumn(name="id_grupoestudiante",referencedColumnName = "id_grupoestudiante",nullable = false)
@@ -33,10 +33,9 @@ public class Nota {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Nota(Integer id_nota, String fecha, String nota, String observaciones) {
+	public Nota(Integer id_nota,Double nota, String observaciones) {
 		super();
 		this.id_nota = id_nota;
-		this.fecha = fecha;
 		this.nota = nota;
 		this.observaciones = observaciones;
 	}
@@ -49,19 +48,12 @@ public class Nota {
 		this.id_nota = id_nota;
 	}
 
-	public String getFecha() {
-		return fecha;
-	}
-
-	public void setFecha(String fecha) {
-		this.fecha = fecha;
-	}
-
-	public String getNota() {
+	
+	public Double getNota() {
 		return nota;
 	}
 
-	public void setNota(String nota) {
+	public void setNota(Double nota) {
 		this.nota = nota;
 	}
 

@@ -11,7 +11,7 @@
 	<body th:fragment="content">
 	<div class="container-contact100">
 		<div class="wrap-contact100">
-			<form class="contact100-form validate-form" action="/instituciones/modificar" method="post">
+			<form class="contact100-form validate-form" action="/notas/modificar" method="post">
 				<span class="contact100-form-title">
 					MODIFICAR NOTA
 				</span>
@@ -31,14 +31,9 @@
                     </select>
 					<span class="focus-input100"></span>
                 </div>
-				<label class="label-input100" for="fecha">Fecha:</label>
+				<label class="label-input100" for="nota">Nota:</label>
 				<div class="wrap-input100 rs1 validate-input">
-					<input th:value="${item.fecha}" id="fecha" class="input100" type="date" name="fecha">
-					<span class="focus-input100"></span>
-                </div>
-                <label class="label-input100" for="nota">Nota:</label>
-				<div class="wrap-input100 rs1 validate-input">
-					<input th:value="${item.nota}" id="nota" class="input100" type="text" name="nota">
+					<input th:value="${item.nota}" id="nota" class="input100" type="number" name="nota" min="0.00" max="100" step="any">
 					<span class="focus-input100"></span>
                 </div>
                 <label class="label-input100" for="observaciones">Observaciones:</label>

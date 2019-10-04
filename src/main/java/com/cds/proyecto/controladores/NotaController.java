@@ -21,8 +21,10 @@ import com.cds.proyecto.repositorios.INotaRepository;
 @Controller
 @RequestMapping("notas")
 public class NotaController {
+	
 	@Autowired
 	INotaRepository erNota;
+	
 	@Autowired
 	IGrupoestudianteRepository erGrupoestudiante;
 	
@@ -39,9 +41,8 @@ public class NotaController {
 		return "/nota/addNota";
 	}
 	@PostMapping(value="guardar")
-	public String guardar(@RequestParam Integer grupoestudiante, @RequestParam String fecha, @RequestParam String nota, @RequestParam String observaciones) {
+	public String guardar(@RequestParam Integer grupoestudiante,@RequestParam Double nota, @RequestParam String observaciones) {
 		@Valid Nota i=new Nota();
-		i.setFecha(fecha);
 		Grupoestudiante g= erGrupoestudiante.findById(grupoestudiante).get();
 		i.setGrupoestudiante(g);
 		i.setNota(nota);
@@ -52,13 +53,14 @@ public class NotaController {
 	@GetMapping(value="modificar/{id_nota}")
 	public String VistaModificar(@PathVariable Integer id_nota, Model model) {
 		Nota i=erNota.findById(id_nota).get();
+		model.addAttribute("item", i);
 		List<Grupoestudiante> grupoestudiantes=(List<Grupoestudiante>) erGrupoestudiante.findAll();
 		model.addAttribute("grupoestudiantes", grupoestudiantes);
 		return "/nota/updateNota";
 	}
 	@PostMapping(value="modificar")
-	public String modificar(@RequestParam Integer id_nota, @RequestParam String fecha, @RequestParam String nota, @RequestParam String observaciones, @RequestParam Integer grupoestudiante) {
-		Nota i=new Nota(id_nota, fecha, nota, observaciones);
+	public String modificar(@RequestParam Integer id_nota,@RequestParam Double nota, @RequestParam String observaciones, @RequestParam Integer grupoestudiante) {
+		Nota i=new Nota(id_nota,nota, observaciones);
 		Grupoestudiante g=erGrupoestudiante.findById(grupoestudiante).get();
 		i.setGrupoestudiante(g);
 		erNota.save(i);

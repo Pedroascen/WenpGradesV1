@@ -21,8 +21,9 @@
           <thead  style="background-color: #03729B">
             <tr id="color1">
                 <th>Id</th>
-                <th>Nota</th>
+                <th>Materia</th>
                 <th>Nombre</th>
+                <th>Fecha</th>
                 <th>Descripción</th>
                 <th>Ponderación</th>
                 <th>Modificar</th>
@@ -35,8 +36,9 @@
 		variable 'items', esta el el foreach -->
 			<tr th:each="i : ${items}">
 			<td th:text="${i.id_actividad}"></td>
-			<td th:text="${i.nota.nota}"></td>
+			<td th:text="${i.materia.nombre}"></td>
 			<td th:text="${i.nombre}"></td>
+			<td th:text="${i.fecha}"></td>
 			<td th:text="${i.descripcion}"></td>
 			<td th:text="${i.ponderacion}"></td>
 			<td> <a name="modificar" id="modificar" class="btn btn-outline-success" th:href="@{'/actividades/modificar/' + ${i.id_actividad}}" role="button">Modificar</a></td>

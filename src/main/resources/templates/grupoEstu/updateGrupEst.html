@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- implementacion de la plantilla -->
+<html xmlns:th="http://www.thymeleaf.org" th:include="layouts/layout::plantilla">
+      <!--th:include="layouts/layout::plantilla"-->
+<head>
+    <meta charset="ISO-8859-1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo-Estudiante</title>
+</head>
+<body th:fragment="content">
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form" action="/grupoestudiantes/guardar" method="post">
+				<span class="contact100-form-title">
+					MODIFIACAR GRUPO
+				</span>
+				<!--  Grupo -->
+				<label class="label-input100" for="id_grupo">Grupo:</label>
+				<div class="wrap-input100 rs1 validate-input">
+					<select name="grupo" id="grupo" class="form-control">
+                           <option></option>
+                        </select>
+					<span class="focus-input100"></span>
+                </div>
+                <!-- Estudante -->
+                <label class="label-input100" for="id_estudiante">Estudiante:</label>
+				<div class="wrap-input100 rs1 validate-input">
+					<select name="estudiante" id="estudiante" class="form-control">
+                            <option></option>
+                        </select>
+					<span class="focus-input100"></span>
+                </div>
+				<button  type="sumit" class="btn btn-outline-success" id="aceptar">Guardar</button>
+                <a   class="btn btn-outline-danger" href="/grupoestudiantes/index" id="cancelar">Cancelar</a>
+							
+			</form>
+		</div>
+	</div>
+</html>

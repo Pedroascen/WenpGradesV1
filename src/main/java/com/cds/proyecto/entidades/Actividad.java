@@ -1,5 +1,6 @@
 package com.cds.proyecto.entidades;
 
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -9,7 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
-
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 
@@ -22,29 +22,37 @@ public class Actividad{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id_actividad;
 	
+	
+	private String fecha;
+	
 	@NotBlank(message = "campo requerido")
 	private String nombre;
-	
+		
 	@Nullable
 	private String descripcion;
 	
-	@NotBlank(message = "campo requerido")
-	private String ponderacion;
-	@JoinColumn(name="id_nota",referencedColumnName = "id_nota",nullable = false)
+	
+	private Double ponderacion;
+	
+	@JoinColumn(name="id_materia",referencedColumnName = "id_materia",nullable = false)
 	@ManyToOne(optional = false,fetch = FetchType.EAGER)
-	private Nota nota;
+	private Materia materia;
 	
 	public Actividad() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Actividad(Integer id_actividad, @NotBlank(message = "campo requerido") String nombre, String descripcion,
-			@NotBlank(message = "campo requerido") String ponderacion) {
+	public Actividad(Integer id_actividad, String fecha,
+			@NotBlank(message = "campo requerido") String nombre,
+			@NotBlank(message = "campo requerido") String descripcion,
+			Double ponderacion, Materia materia) {
 		super();
 		this.id_actividad = id_actividad;
+		this.fecha = fecha;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
 		this.ponderacion = ponderacion;
+		this.materia = materia;
 	}
 
 	public Integer getId_actividad() {
@@ -53,6 +61,14 @@ public class Actividad{
 
 	public void setId_actividad(Integer id_actividad) {
 		this.id_actividad = id_actividad;
+	}
+
+	public String getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
 	}
 
 	public String getNombre() {
@@ -71,22 +87,20 @@ public class Actividad{
 		this.descripcion = descripcion;
 	}
 
-	public String getPonderacion() {
+	public Double getPonderacion() {
 		return ponderacion;
 	}
 
-	public void setPonderacion(String ponderacion) {
+	public void setPonderacion(Double ponderacion) {
 		this.ponderacion = ponderacion;
 	}
 
-	public Nota getNota() {
-		return nota;
+	public Materia getMateria() {
+		return materia;
 	}
 
-	public void setNota(Nota nota) {
-		this.nota = nota;
+	public void setMateria(Materia materia) {
+		this.materia = materia;
 	}
-
 	
-
 }

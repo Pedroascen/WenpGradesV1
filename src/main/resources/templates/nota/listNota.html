@@ -22,7 +22,6 @@
             <tr id="color1">
                 <th>ID</th>
                 <th>Grupo-Estudiante</th>
-                <th>Fecha:</th>
                 <th>Nota</th>
                 <th>Observaciones</th>
                 <th>Modificar</th>
@@ -36,7 +35,6 @@
 			<tr th:each="i : ${items}">
 				<td th:text="${i.id_nota}"></td>
 				<td th:text="${i.grupoestudiante.id_grupoEstudiante}"></td>
-				<td th:text="${i.fecha}"></td>
 				<td th:text="${i.nota}"></td>
 				<td th:text="${i.observaciones}"></td>
 				<td> <a name="modificar" id="modificar" class="btn btn-outline-success" th:href="@{'/notas/modificar/' + ${i.id_nota}}" role="button">Modificar</a></td>
