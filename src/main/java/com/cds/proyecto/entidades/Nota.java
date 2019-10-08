@@ -21,7 +21,7 @@ public class Nota {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id_nota;
 	
-    private String fecha;
+
     private Double nota;
     private String observaciones;
     

@@ -15,7 +15,7 @@
 					<table class="table table-bordered" id="dataTable">
 						<thead style="background-color: #03729B">
 							<tr id="color1">
-								<th>ID</th>
+								<th>Id</th>
 								<th>Nombre</th>
 								<th>Descripcion</th>
 								<th>Especialidad</th>
@@ -31,7 +31,7 @@
 								<td th:text=${i.descripcion}></td>
 								<td th:text=${i.especialidad}></td>
 								<td><a name="modificar" id="modificar" class="btn btn-outline-success" th:href="@{'/materias/modificar/' + ${i.id_materia}}" role="button">Modificar</a></td>
-								<td><a name="eliminar" id="eliminar" class="btn btn-outline-danger" th:href="@{'/materias/eliminar/' + ${i.id_materia}}" role="button">Eliminar</a></td>
+								<td><a name="eliminar" id="eliminar" class="btn btn-outline-danger" href="materias/eliminar" role="button">Eliminar</a></td>
 							</tr>
 						</tbody>
 					</table>

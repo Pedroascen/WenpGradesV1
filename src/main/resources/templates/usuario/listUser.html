@@ -20,7 +20,7 @@
           <table class="table table-bordered" id="dataTable">
           <thead  style="background-color: #03729B">
             <tr id="color1">
-                <th>ID</th>
+                <th>Id</th>
                 <th>Rol</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
@@ -41,7 +41,7 @@
 				<td th:text="${i.usuario}"></td>
 				<td th:text="${i.password}"></td>
 				<td> <a name="modificar" id="modificar" class="btn btn-outline-success" th:href="@{'/usuarios/modificar/' + ${i.id_usuario}}" role="button">Modificar</a></td>
-				<td> <a name="eliminar" id="eliminar" class="btn btn-outline-danger" th:href="@{'/usuarios/eliminar/' + ${i.id_usuario}}"  role="button">Eliminar</a></td>
+				<td> <a name="eliminar" id="eliminar" class="btn btn-outline-danger" th:href="@{'/usuarios/eliminar/' + ${i.id_usuario}}"  role="button" href="#" data-toggle="modal" data-target="#logoutModal">Eliminar</a></td>
 			</tr>
         </tbody>
           </table>

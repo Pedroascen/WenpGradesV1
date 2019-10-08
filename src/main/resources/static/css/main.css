@@ -161,11 +161,11 @@ iframe {
 
 .limiter {
   width: 100%;
-  margin: 0 auto;
 }
 
 .container-login100 {
   width: 100%;  
+ 
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -179,7 +179,7 @@ iframe {
 }
 /**********************login****************************/
 .wrap-login100 {
-  margin-top: -60px;
+  margin-top: 60px;
   width: 960px;
   background: rgb(255, 255, 255);
   border-radius: 25px;

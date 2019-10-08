@@ -7,19 +7,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("ingresar")
 public class AdminController {
-	
+
 	@GetMapping("index")
-	public String logi(){
+	public String logi() {
 		return "administration/login";
 	}
 
 	@GetMapping("inicio")
 	public String Dash() {
-		return "components/somos";
+		return "components/slider";
 	}
-	
-	@GetMapping("prueba")
+
+	@GetMapping("detalle")
 	public String Dashbo() {
-		return "components/carrusel";
+		return "components/somos";
 	}
 }

@@ -12,7 +12,7 @@
     <div class="card mb-3">
     <div class="card-header">
       <i class="fas fa-table"></i>
-      Tabla de Datos/ Instituciones <a class="btn btn-outline-info btn-lg" th:href="@{/actividades/guardar}" role="button" id="nuevo">Nuevo</a>
+      Tabla de Datos/ Instituciones <a class="btn btn-outline-info btn-lg" th:href="@{/instituciones/guardar}" role="button" id="nuevo">Nuevo</a>
       </div>
       
       <div class="card-body">
@@ -20,12 +20,13 @@
           <table class="table table-bordered" id="dataTable">
           <thead  style="background-color: #03729B">
             <tr id="color1">
-                <th>ID</th>
-                <th>Materia</th>
+                <th>Id</th>
+                <th>Usuario</th>
                 <th>Nombre</th>
-                <th>Fecha</th>
-                <th>Descripción</th>
-                <th>Ponderación</th>
+                <th>Direccion</th>
+                <th>Telefono</th>
+                <th>Email</th>
+                <th>Codigo</th>
                 <th>Modificar</th>
 			   <th>Eliminar</th>
             </tr>
@@ -35,13 +36,15 @@
            <!-- Estructira repetitiva para recorrer el listado que viene en
 		variable 'items', esta el el foreach -->
 			<tr th:each="i : ${items}">
-				<td th:text="${i.id_actividad}"></td>
-				<td th:text="${i.materia.nombre}"></td>
-				<td th:text="${i.fecha}"></td>
-				<td th:text="${i.descripcion}"></td>
-				<td th:text="${i.ponderacion}"></td>
-				<td> <a name="modificar" id="modificar" class="btn btn-outline-success" th:href="@{'/actividades/modificar/' + ${i.id_actividad}}" role="button">Modificar</a></td>
-				<td> <a name="eliminar" id="eliminar" class="btn btn-outline-danger" th:href="@{'/actividades/eliminar/' + ${i.id_actividad}}"  role="button">Eliminar</a></td>
+				<td th:text="${i.id_institucion}"></td>
+				<td th:text="${i.usuario.nombre}"></td>
+				<td th:text="${i.nombre}"></td>
+				<td th:text="${i.direccion}"></td>
+				<td th:text="${i.telefono}"></td>
+				<td th:text="${i.email}"></td>
+				<td th:text="${i.codigo}"></td>
+				<td> <a name="modificar" id="modificar" class="btn btn-outline-success" th:href="@{'/instituciones/modificar/' + ${i.id_institucion}}" role="button">Modificar</a></td>
+				<td> <a name="eliminar" id="eliminar" class="btn btn-outline-danger" th:href="@{'/instituciones/eliminar/' + ${i.id_institucion}}"  role="button">Eliminar</a></td>
 			</tr>
         </tbody>
           </table>

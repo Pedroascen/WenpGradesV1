@@ -68,7 +68,6 @@ public class UsuarioController {
 		  
 		  Usuario u=new Usuario(id_usuario, nombre, apellido, usuario, password);
 	      
-		  
 		  Rol r=erRol.findById(rol).get();
 		  u.setRol(r); 
 	 
