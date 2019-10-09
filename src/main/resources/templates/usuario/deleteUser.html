@@ -10,21 +10,21 @@
     <div >
     		<div class="container-contact100">
 		<div class="wrap-contact100">		
-			<form class="contact100-form validate-form" action="@{'/usuario/eliminar/' + ${i.id_usuario}}" method="post">
+			<form class="contact100-form validate-form" action="@{'/usuarios/eliminar/' + ${i.id_usuario}}" method="post">
 				<span class="contact100-form-title">
 					ELIMINAR USUARIO
 				</span>
 				
-				<input type="hidden" name="idCliente" th:value="${idCliente}">
+				<input type="hidden" name="id_usuario" th:value="${id_usuario}">
              <div class='p-3 mb-2 bg-info text-white col-8 offset-2 text-center' role='alert' id='alerta' style="border-radius: 10px">
-                <h3 th:text="|¿Desea eliminar ${nombreCliente} ${apellidoCliente} de Usuario?|"></h3>
+                <h3 th:text="|¿Desea eliminar el registro ${id_usuario} de la tabla usuarios?|"></h3>
             </div>
                 <div style="margin-left: auto; margin-right: auto;">
-				<button  type="submit" class="btn btn-outline-success" value="Guardar" id="aceptar">Guardar</button>
+                <a class="btn btn-outline-primary" href="/usuarios/index" role="button" id="aceptar">Cancelar</a>				
 				</div>
 				<div style="margin-left: auto; margin-right: auto;">
-				<a class="btn btn-outline-danger" href="/materias/index" role="button" id="cancelar">Cancelar</a>
-            </div>
+				<button  type="submit" class="btn btn-outline-danger" value="Guardar" id="cancelar" >Eliminar</button>
+			</div>
            </form>
 		</div>
 		</div>

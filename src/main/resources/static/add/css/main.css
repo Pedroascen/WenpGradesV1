@@ -156,6 +156,9 @@ iframe {
 
  
 }
+.box-form{
+	border-radius: 10px;
+}
 
 .wrap-contact100 {
   width: 790px;
@@ -177,6 +180,7 @@ iframe {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding: 40px;
 }
 
 .contact100-form-title {

@@ -20,24 +20,23 @@ public class Nota {
 	@NonNull
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id_nota;
-	
-
     private Double nota;
     private String observaciones;
     
-    @JoinColumn(name="id_grupoestudiante",referencedColumnName = "id_grupoestudiante",nullable = false)
+    @JoinColumn(name="id_actividad",referencedColumnName = "id_actividad",nullable = false)
 	@ManyToOne(optional = false, fetch = FetchType.EAGER)
-    private Grupoestudiante grupoestudiante;
+    private Actividad actividad;
     
     public Nota() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Nota(Integer id_nota,Double nota, String observaciones) {
+	public Nota(Integer id_nota, Double nota, String observaciones, Actividad actividad) {
 		super();
 		this.id_nota = id_nota;
 		this.nota = nota;
 		this.observaciones = observaciones;
+		this.actividad = actividad;
 	}
 
 	public Integer getId_nota() {
@@ -48,7 +47,6 @@ public class Nota {
 		this.id_nota = id_nota;
 	}
 
-	
 	public Double getNota() {
 		return nota;
 	}
@@ -65,12 +63,12 @@ public class Nota {
 		this.observaciones = observaciones;
 	}
 
-	public Grupoestudiante getGrupoestudiante() {
-		return grupoestudiante;
+	public Actividad getActividad() {
+		return actividad;
 	}
 
-	public void setGrupoestudiante(Grupoestudiante grupoestudiante) {
-		this.grupoestudiante = grupoestudiante;
+	public void setActividad(Actividad actividad) {
+		this.actividad = actividad;
 	}
     
 }

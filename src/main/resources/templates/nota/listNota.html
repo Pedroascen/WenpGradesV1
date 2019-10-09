@@ -21,7 +21,7 @@
           <thead  style="background-color: #03729B">
             <tr id="color1">
                 <th>Id</th>
-                <th>Grupo-Estudiante</th>
+                <th>Actividad</th>
                 <th>Nota</th>
                 <th>Observaciones</th>
                 <th>Modificar</th>
@@ -34,11 +34,12 @@
 		variable 'items', esta el el foreach -->
 			<tr th:each="i : ${items}">
 				<td th:text="${i.id_nota}"></td>
-				<td th:text="${i.grupoestudiante.id_grupoEstudiante}"></td>
+				<td th:text="${i.actividad.nombre}"></td>
 				<td th:text="${i.nota}"></td>
 				<td th:text="${i.observaciones}"></td>
 				<td> <a name="modificar" id="modificar" class="btn btn-outline-success" th:href="@{'/notas/modificar/' + ${i.id_nota}}" role="button">Modificar</a></td>
 				<td> <a name="eliminar" id="eliminar" class="btn btn-outline-danger" th:href="@{'/notas/eliminar/' + ${i.id_nota}}"  role="button">Eliminar</a></td>
+				
 			</tr>
         </tbody>
           </table>
