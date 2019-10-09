@@ -41,7 +41,27 @@
 				<td th:text="${i.usuario}"></td>
 				<td th:text="${i.password}"></td>
 				<td> <a name="modificar" id="modificar" class="btn btn-outline-success" th:href="@{'/usuarios/modificar/' + ${i.id_usuario}}" role="button">Modificar</a></td>
-				<td> <a name="eliminar" id="eliminar" class="btn btn-outline-danger" th:href="@{'/usuarios/eliminar/' + ${i.id_usuario}}"  role="button" href="#" data-toggle="modal" data-target="#logoutModal">Eliminar</a></td>
+               <td><a name="eliminar" id="eliminar" class="btn btn-outline-danger"  role="button" href="#" data-toggle="modal" data-target="#eliminar">Eliminar</a></td>
+			
+				<div class="modal fade" id="eliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+				     <div class="modal-content">
+						  <div class="modal-header">
+							    <h5 class="modal-title" id="exampleModalLabel">¿Está seguro de querer eliminar este registro?</h5>
+							    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+						        <span aria-hidden="true">×</span>
+							     </button>
+							     </div>
+							    <div class="modal-body">
+							   Al seleccionar "eliminar" desaparecerá este dato de forma permanente.
+							        ¿Desea continuar?</div>
+							     <div class="modal-footer">
+							   <button class="btn btn-info" type="button" data-dismiss="modal">Cancelar</button>
+					       <a class="btn btn-danger" th:href="@{'/usuarios/eliminar/' + ${i.id_usuario}}" >Eliminar</a>
+						 </div>
+					    </div>
+					</div>
+				</div>			
 			</tr>
         </tbody>
           </table>

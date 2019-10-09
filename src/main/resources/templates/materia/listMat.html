@@ -38,13 +38,13 @@
 							    <div class="modal-dialog" role="document">
 							      <div class="modal-content">
 							        <div class="modal-header">
-							          <h5 class="modal-title" id="exampleModalLabel">¿Está seguro de querer Eliminar?</h5>
+							          <h5 class="modal-title" id="exampleModalLabel">¿Está seguro de querer eliminar este registro?</h5>
 							          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
 							            <span aria-hidden="true">×</span>
 							          </button>
 							        </div>
-							        <div class="modal-body">Al seleccionar "eliminar" desaparecera este registrode forma permanente.
-							         No habra manera de recuperarlo.</div>
+							        <div class="modal-body"> Al seleccionar "eliminar" desaparecerá este dato de forma permanente.
+							        ¿Desea continuar?</div>
 							        <div class="modal-footer">
 							          <button class="btn btn-info" type="button" data-dismiss="modal">Cancelar</button>
 							          <a class="btn btn-danger" th:href="@{'/materias/eliminar/' + ${i.id_materia}}" >Eliminar</a>
@@ -56,16 +56,6 @@
 		</tbody>
   </table>
 </div>
-	<script type="text/javascript">
-	  $('button[name="remove_levels"]').on('click', function(e){
-	    var $form=$(this).closest('form');
-	    e.preventDefault();
-	    $('#confirm').modal({ backdrop: 'static', keyboard: false })
-	        .one('click', 'id_doctor', function (e) {
-	            $form.trigger('submit');
-	        });
-	});
-	</script>
 </body>
 
 </html>

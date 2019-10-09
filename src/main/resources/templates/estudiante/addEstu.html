@@ -18,7 +18,7 @@
 				
 				<label class="label-input100" for="id_institucion">Institución:</label>
 				<div class="wrap-input100 rs1 validate-input">
-					<select name="institucion" id="institucion" class="form-control">
+					<select name="institucion" id="institucion" class="form-control" required>
                             <option th:each="i:${instituciones}" th:value="${i.id_institucion}" th:text="${i.nombre}"></option>
                         </select>
 					<span class="focus-input100"></span>

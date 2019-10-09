@@ -22,7 +22,7 @@
                 </div>
 				<label class="label-input100" for="id_actividad">Actividad:</label>
 				<div class="wrap-input100 rs1 validate-input">
-					<select name="actividad" id="actividad" class="form-control">
+					<select name="actividad" id="actividad" class="form-control" required>
 						<div th:each="ac:${actividades}">
                             <option th:if="${ac.id_actividad==item.actividad.id_actividad}" selected th:value="${ac.id_actividad}" th:text="${ac.nombre}"></option>
                         	<option th:if="${ac.id_actividad!=item.actividad.id_actividad}"   th:value="${ac.id_actividad}" th:text="${ac.nombre}"></option>
@@ -32,7 +32,7 @@
                 </div>
 				<label class="label-input100" for="nota">Nota:</label>
 				<div class="wrap-input100 rs1 validate-input">
-					<input th:value="${item.nota}" id="nota" class="input100" type="number" name="nota" min="0.00" max="10.0" step="any">
+					<input th:value="${item.nota}" id="nota" class="input100" type="number" name="nota" min="0.00" max="10.0" step="any" required>
 					<span class="focus-input100"></span>
                 </div>
                 <label class="label-input100" for="observaciones">Observaciones:</label>
