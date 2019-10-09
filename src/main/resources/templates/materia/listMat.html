@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	th:include="layouts/layout::plantilla">
 <head>
+<meta charset="utf-8">
 </head>
 <body>
 
@@ -31,14 +32,40 @@
 								<td th:text=${i.descripcion}></td>
 								<td th:text=${i.especialidad}></td>
 								<td><a name="modificar" id="modificar" class="btn btn-outline-success" th:href="@{'/materias/modificar/' + ${i.id_materia}}" role="button">Modificar</a></td>
-								<td><a name="eliminar" id="eliminar" class="btn btn-outline-danger" href="materias/eliminar" role="button">Eliminar</a></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-	</div>
+				                <td><a name="eliminar" id="eliminar" class="btn btn-outline-danger"  role="button" href="#" data-toggle="modal" data-target="#eliminar">Eliminar</a></td>
+			
+							  <div class="modal fade" id="eliminar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							    <div class="modal-dialog" role="document">
+							      <div class="modal-content">
+							        <div class="modal-header">
+							          <h5 class="modal-title" id="exampleModalLabel">¿Está seguro de querer Eliminar?</h5>
+							          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+							            <span aria-hidden="true">×</span>
+							          </button>
+							        </div>
+							        <div class="modal-body">Al seleccionar "eliminar" desaparecera este registrode forma permanente.
+							         No habra manera de recuperarlo.</div>
+							        <div class="modal-footer">
+							          <button class="btn btn-info" type="button" data-dismiss="modal">Cancelar</button>
+							          <a class="btn btn-danger" th:href="@{'/materias/eliminar/' + ${i.id_materia}}" >Eliminar</a>
+							        </div>
+							      </div>
+							    </div>
+							  </div>
+		</tr>
+		</tbody>
+  </table>
+</div>
+	<script type="text/javascript">
+	  $('button[name="remove_levels"]').on('click', function(e){
+	    var $form=$(this).closest('form');
+	    e.preventDefault();
+	    $('#confirm').modal({ backdrop: 'static', keyboard: false })
+	        .one('click', 'id_doctor', function (e) {
+	            $form.trigger('submit');
+	        });
+	});
+	</script>
 </body>
 
 </html>
