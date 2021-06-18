@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:include="layouts/layout::plantilla">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body th:fragment="content">
+	<div class="text-center"><i class="fas fa-fw fa-folder-open"></i>Tabla de Datos/ Calificaciones</div>
+	<!--tabla de datos-->
+	<div class="card-body">
+	<div class="row justify-content-center">
+		<div><label>Materia:</label></div>
+		<div class="col-sm-3">
+				 <select class="form-control" name="materia"
+					id="datoMateria" required>
+					<option th:each="ma:${materias}" selected th:value="${ma.nombre}"
+						th:text="${ma.nombre}"></option>
+				</select>
+			</div>
+			<div><label>Grupo:</label></div>
+			<div class="col-sm-3">
+				 <select class="form-control" name="grupo"
+					id="datoGrupo" required>
+					<option th:each="g:${grupos}" selected th:value="${g.grupo}"
+						th:text="${g.grupo}"></option>
+				</select>
+			</div>
+			<div><label>Actividad:</label></div>
+			<div class="col-sm-3">
+				 <select class="form-control"
+					name="actividad" id="dataActividad" required>
+				</select>
+			</div>
+	</div>
+	<!-- Input selecciona el id de grupo estudiante en el js de nota -->
+	<div><input type="hidden" class="form-control id_grupoestudiante"></div>
+	<table class="table table-hover table-bordered" id="TableGEstu">
+							<thead class='header text-center' style='background-color: #03729B'>
+								<tr id='color1'>
+									<th>No</th>
+									<th>Nombre</th>
+									<th>Apellido</th>
+									<th>Nota</th>
+									<th>observacion</th>
+									<th>opcion</th>
+								</tr>
+							</thead>
+							<tbody class="text-center" id="DataEstudiante">
+							</tbody>
+						</table>
+	</div>
+
+	<!-- enlaces de javascript -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<!--Script for dataTable-->
+	<script
+		src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+	<script
+		src=" http://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js"></script>
+	<script th:src="@{/jsAjax/nota.js}"></script>
+</body>
+</html>

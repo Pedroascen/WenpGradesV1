@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      th:include="layouts/layout::plantilla">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+	 <body class="container">
+
+  <!-- DataTables Example -->
+  	<div  th:fragment="content">
+    <div class="card mb-3">
+    <div class="card-header">
+     <i class="fas fa-fw fa-clipboard-check"></i>
+    Tabla de Datos/ Actividades <a class="btn btn-info" th:href="@{/actividades/guardar}" role="button" id="nuevo"> <i style='font-size:20px' class='fas'>&#xf067;</i> Nuevo</a>
+      </div>
+      
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-hover table-striped table-bordered" id="dataTable">
+          <thead class="text-center" style="background-color: #03729B">
+            <tr id="color1">
+                <th>Id</th>
+                <th>Materia</th>
+                <th>Nombre</th>
+                <th>Fecha</th>
+                <th>Descripción</th>
+                <th>Ponderación</th>
+                <th style="width:200px">Opciones</th>
+            </tr>
+          </thead>
+
+           <tbody class="text-center">
+           <!-- Estructira repetitiva para recorrer el listado que viene en
+		variable 'items', esta el el foreach -->
+			<tr th:each="i : ${items}">
+			<td th:text="${i.id_actividad}"></td>
+			<td th:text="${i.materia.nombre}"></td>
+			<td th:text="${i.nombre}"></td>
+			<td th:text="${i.fecha}"></td>
+			<td th:text="${i.descripcion}"></td>
+			<td th:text="${i.ponderacion}"></td>
+			<td> <a name="modificar" id="modificar" class="btn btn-primary mt-1 col-ml-5" th:href="@{'/actividades/modificar/' + ${i.id_actividad}}" role="button"><i class='fa fa-pen fa-fw mr-2'></i>  Editar</a>
+			     <a name="eliminar" id="eliminar" class="btn btn-danger mt-1 col-ml-5" th:href="@{'/actividades/eliminar/' + ${i.id_actividad}}"  role="button"> <i class='fa fa-trash-alt fa-1x mr-1'></i>Eliminar </a></td>
+			</tr>
+        </tbody>
+          </table>
+          </div>
+          </div>
+        </div>	
+        </div>
+</body>
+</html>

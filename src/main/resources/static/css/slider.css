@@ -1,0 +1,75 @@
+.slider {
+	border-radius:10px;
+	width: 95%;
+	margin: auto;
+	overflow: hidden;
+}
+
+.slider ul {
+	display: flex;
+	padding: 0;
+	width: 400%;
+	
+	animation: cambio 15s infinite alternate linear;
+}
+
+.slider li {
+	width: 100%;
+	list-style: none;
+}
+
+.slider img {
+	width: 100%;
+}
+
+@keyframes cambio {
+	0% {margin-left: 0;}
+	20% {margin-left: 0;}
+	
+	25% {margin-left: -100%;}
+	45% {margin-left: -100%;}
+	
+	50% {margin-left: -200%;}
+	70% {margin-left: -200%;}
+	
+	75% {margin-left: -300%;}
+	100% {margin-left: -300%;}
+}
+/************Efecto************/
+.justify-content-center {
+	border: rgb(231, 231, 231) 3px solid;
+	margin: 20px;
+  }
+  .col-sm-1 {
+    font-size: 19px;
+} 
+.label-input100 {
+    font-size: 20px;
+} 
+.justify-content-center {
+	border: rgb(247, 255, 255) 3px solid;
+	margin: 15px;
+  }
+  form{
+	box-shadow: inset 8px 8px 8px 8px  rgb(231, 231, 231);	
+		
+}
+/*.justify-content-center {
+	margin: 0;
+  
+	-webkit-box-sizing: border-box; 
+	   -moz-box-sizing: border-box; 
+			box-sizing: border-box;
+  }*/
+.container{
+	max-width: 1160px;
+  width: expression(document.body.clientWidth > 1101? "10px": "max-content"
+}
+.ultimo{
+	max-width: 1160px;
+  width: expression(document.body.clientWidth > 1101? "10px": "max-content"
+}
+.contraseña{
+	font-size: 18px;
+}
+

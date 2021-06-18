@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:include="layouts/layout::plantilla">
+      <!--th:include="components/styleA::stylA"-->
+   
+<head>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width"/>
+
+    <title>Actividades</title>
+</head>
+<body th:fragment="content">
+
+	<div class="container ultimo">
+		<form class="mt-4 text-center border p-5 form validate-form;"
+		 th:action="@{/actividades/modificar}" method="post">
+				<h5 class="contact100-form-title">
+					MODIFICAR ACTIVIDAD <i style='font-size:36px' class="fas fa-clipboard"></i>
+				</h5>
+				<hr>
+				
+				<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+				
+				<div>
+					<input th:value="${item.id_actividad}" id="id_actividad" class="input100" type="hidden" name="id_actividad">
+					<span class="focus-input100"></span>
+				</div>
+				
+				<div class="justify-content-center">
+				
+				<!--<div class="col-sm-5">
+				<label class="label-input100" for="id_materia">Materia:</label>
+				<div class="wrap-input100 rs1 validate-input">
+					<select name="materia" id="materia" class="form-control" required>
+                            <div th:each="m:${materias}">
+                            <option th:if="${m.id_materia==item.materia.id_materia}" selected th:value="${m.id_materia}" th:text="${m.nombre}"></option>
+                            <option th:if="${m.id_materia!=item.materia.id_materia}" th:value="${m.id_materia}" th:text="${m.nombre}"></option>
+                            </div>
+                        </select>
+					<span class="focus-input100"></span>
+                </div>
+                </div>-->
+                
+				<div class="form-group row justify-content-center">	
+					<label class="label-input100 mt-2" for="id_materia">Materia:</label>
+					<div class="col-sm-11">
+					<div class="input-group validate-input">
+					<input th:each="m:${materias}" th:if="${m.id_materia==item.materia.id_materia}" th:value="${m.id_materia}" type="hidden" class="form-control col-sm-11" name="id_materia"
+							id="Campoid2">
+					<input th:each="m:${materias}" th:if="${m.id_materia==item.materia.id_materia}" th:value="${m.nombre}" type="text" class="form-control col-sm-11" id="CampoMateria2" readonly="readonly"> 
+							<span class="focus-input100"></span>
+						<div class="input-group-append">
+							<button type="button" class="btn btn-primary" data-toggle="modal"
+								data-target="#ModalMateria">agregar</button>
+						</div>
+					</div>
+				</div>
+				</div>
+				<div class="form-group row justify-content-center">	
+				<label class="col-sm-1 col-form-label mb-2" for="nombre">Nombre:</label>
+				<div class="col-sm-11">
+				<div class="wrap-input100 rs1 validate-input">
+					<input th:value="${item.nombre}" id="nombre" class="form-control" type="text" name="nombre" placeholder="Digitar nombre" required>
+					<span class="focus-input100"></span>
+                </div>
+                </div>
+				</div>
+				<div class="form-group row justify-content-center">	
+				<label class="col-sm-1 col-form-label mb-2" for="fecha">Fecha:</label>
+				<div class="col-sm-11">
+				<div class="wrap-input100 rs1 validate-input">
+					<input th:value="${item.fecha}" id="fecha" class="form-control" type="date" name="fecha"  min="2020-01-01" max="2020-11-30" placeholder="Digitar fecha" required>
+					<span class="focus-input100"></span>
+                </div>
+                </div>
+				</div>
+				<div class="form-group row justify-content-center">	
+				<label class="label-input100 mt-2 mr-4" for="descripcion"> Descripción :</label>
+				<div class="col-sm-10">
+				<div class="wrap-input100 rs1 validate-input">
+					<textarea th:field="${item.descripcion}" id="descripcion" class="form-control" type="text" size="93" name="descripcion" placeholder="Digitar descripción"></textarea>
+					<span class="focus-input100"></span>
+                </div>
+                </div>
+				</div>
+				<div class="form-group row justify-content-center">	
+				<label class="label-input100 mt-2" for="ponderacion">Ponderación :</label>
+				<div class="col-sm-10">
+				<div class="wrap-input100 rs1 validate-input mt-2">
+					<select class="form-control" id="ponderacion" name="ponderacion">
+					  <option value="0.05">5%</option>
+					  <option value="0.10">10%</option>
+					  <option value="0.15">15%</option>
+					  <option value="0.20">20%</option>
+					  <option value="0.25">25%</option>
+					  <option value="0.30">30%</option>
+					  <option value="0.35">35%</option>
+					  <option value="0.40">40%</option>
+					  <option value="0.45">45%</option>
+					  <option value="0.50">50%</option>
+					  <option value="0.55">55%</option>
+					  <option value="0.60">60%</option>
+					  <option value="0.65">65%</option>
+					  <option value="0.70">70%</option>
+					  <option value="0.75">75%</option>
+					  <option value="0.80">80%</option>
+					  <option value="0.85">85%</option>
+					  <option value="0.90">90%</option>
+					  <option value="0.95">95%</option>
+					  <option value="1">100%</option>
+					</select>
+					<span class="focus-input100"></span>
+                </div>
+                </div>
+                </div>
+				</div>
+                <hr>
+                 
+				<div class="">		
+				<button  class="btn btn-info"> <i class="fas fa-check"></i> Guardar</button>
+				<a  class="btn btn-danger btn-md" href="/actividades/index"> <i class='fas fa-times'></i> Cancelar</a>
+				</div>               				
+			</form>
+		</div>
+		
+		<!--  Modal Para seleccionar materia-->
+	<!-- The Modal -->
+	<div class="modal fade" id="ModalMateria">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">Listado de materias</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+
+				<!-- Modal body -->
+				<div class="modal-body">
+					<table class="table table-bordered table-hover tabla-responsive" id="TDataMate">
+						<thead style="background-color: #03729B">
+							<tr id="color1">
+								<th>Id</th>
+								<th>Nombre</th>
+								<th>Descripción</th>
+								<th>Especialidad</th>
+								<th>Opcion</th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+				<!-- Modal footer -->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Cancelar</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+		
+	<!-- enlaces de javascript -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+        <script src=" http://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js"></script>
+        <script th:src="@{/jsAjax/actividad.js}"></script>
+        </body>
+</html>

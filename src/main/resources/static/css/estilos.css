@@ -1,0 +1,21 @@
+
+@media(max-width: 600px){
+	.navEstu{
+		flex-direction:column;
+	}
+	.md-form input{
+	margin: 10px 0;
+	background: red;
+	width:absolute;
+	}
+}
+
+#color1{
+    color:white;
+}
+.estu{
+    background:#03729B;
+    padding:10px 10px;
+    border-radius: 5px;
+    color:white;
+}

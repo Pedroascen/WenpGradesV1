@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:include="layouts/layout::plantilla">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body th:fragment="content">
+				<table class="table table-hover table-striped table-bordered" id="TDataEstu">
+					<thead class="text-center" style="background-color: #03729B">
+						<tr id="color1">
+							<th>Nombre</th>
+							<th>Apellido</th>
+							<th>Email</th>
+							<th>Telefono</th>
+							<th>Institucion</th>
+							<th>opciones</th>
+						</tr>
+					</thead>
+					<tbody class="text-center">
+					</tbody>
+				</table>
+	
+<!-- ---------------------------------------------------------------------------------------------------------------------------------------- -->
+	
+	 <!--Modal para guardar-->
+        <div class="modal fade" id="ModalSave">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header-->
+                    <div class="modal-header barra-modal">
+                        <h3 class="modal-title">Agregar un nuevo registro</h3>
+                        <button type="button" class="close" data-dismiss="modal" style="color:white;">&times;</button>
+                    </div>
+
+                    <!--Modal body-->
+                    <div class="modal-body">
+                        <div class="">
+                            <label for="id">Id:</label>
+                            <input readonly="readonly" type="text" class="form-control" id="id"
+                                placeholder="Id es auto-incrementable" name="id" required>
+                        </div>
+
+                        <div class="">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" id="nombre" class="form-control" placeholder="Ingrese su nombre"
+                                name="fecha">
+                        </div>
+
+                        <div class="">
+                            <label for="apellido">Apellido:</label>
+                            <input type="text" class="form-control" name="apellido" id="apellido"
+                                placeholder="Ingrese su apellido">
+                        </div>
+
+                        <div class="">
+                            <label for="email">Email:</label>
+                            <input type="text" class="form-control" name="email" id="email"
+                                placeholder="Ingrese su email"/>
+                        </div>
+
+                        <div class="">
+                            <label for="telefono">Telefono:</label>
+                            <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Ingrese su email">
+                            </div>
+
+                        <div class="">
+                            <label for="institucion">Institucion:</label>
+                            <select class="form-control" name="institucion" id="institucion">
+                                <option>--Institucion--</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button id="guardarIns" type="button" class="btn btn-primary"
+                            data-dismiss="modal">Guardar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+	
+	<!-- ---------------------------------------------------------------------------------------------------------------------------------------- -->
+	  <!--Modal para eliminar-->
+	  <div class="modal fade text-center" id="ModalDropEstu">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<!--modal header-->
+				<div class="modal-header" style="background-color:hsl(0, 100%, 38%) ; color:white;">
+					<h4 class="modal-title">¿Está seguro de eliminar este registro?</h4>
+					<button type="button" class="close" data-dismiss="modal" style="color:white;">&times;</button>
+				</div>
+				<!--modal body-->
+				<div class="modal-body">
+					<input class="form-control" readonly="readonly" id="idEstu">
+					<h3 class="text">Al continuar no se podra restablecer los cambios</h3>
+				</div>
+				<!--modal footer-->
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success" data-dismiss="modal">No</button>
+					<button id="eliminarEstudiante" type="button" class="btn btn-danger"
+						data-dismiss="modal">Si</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	<!-- enlaces de javascript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<!--Script for dataTable-->
+	<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+	<script src=" http://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:include="layouts/layout::plantilla">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body th:fragment="content">
+
+	<div class="card-header">
+		<i class="fas fa-fw fa-folder-open"></i>Tabla de Datos/ Calificaciones
+		<button class="btn btn-info btn" role="button" id="nuevoCali"
+			data-toggle="modal" data-target="#ModalSave">
+			<i style='font-size:20px' class='fas'>&#xf067;</i> Nuevo 
+		</button>
+		<button class="btn btn-success" role="button" id=""
+			data-toggle="modal" data-target="#">
+			<i class="fa fa-file-excel fa-fw mr-2"></i>Importar
+		</button>
+		<button class="btn btn-success" role="button" id=""
+			data-toggle="modal" data-target="#">
+			<i class='fas fa-window-restore'></i> Exportar
+		</button>
+	</div>
+	<!-- ---------------------------------------------------------------------------------------------------------------------------------------- -->
+
+	<!--tabla de datos-->
+	<div class="card-body">
+		<table class="table table-hover table-bordered text-center" id="TDataNota">
+			<thead class="header" style="background-color: #03729B">
+				<tr id="color1">
+					<th scope="col">Id</th>
+					<th scope="col">Estudiante</th>
+					<th scope="col">Actividad</th>
+					<th scope="col">Nota</th>
+					<th scope="col">Obcervaciones</th>
+					<th scope="col" class="w-10">Opciones</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+
+	<!-- ---------------------------------------------------------------------------------------------------------------------------------------- -->
+	<!--Modal para guardar-->
+	<div class="modal fade" id="ModalSave">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+
+				<!-- Modal Header-->
+				<div class="modal-header barra-modal">
+					<h3 class="modal-title">Agregar un nuevo registro</h3>
+					<button type="button" class="close" data-dismiss="modal"
+						style="color: white;">&times;</button>
+				</div>
+
+				<!--Modal body-->
+				<div class="modal-body">
+					<div class="row justify-content-center">
+						<!--  Materia -->
+						<div class="col-sm-3">
+							<label>Materia:</label> 
+							<select class="form-control" name="materia" id="datoMateria" required>
+									<option th:each="ma:${materias}" selected th:value="${ma.nombre}" th:text="${ma.nombre}"></option>
+							</select>
+						</div>
+						<!--  Grupo -->
+						<div class="col-sm-3">
+							<label>Grupo:</label> 
+							<select class="form-control" name="grupo"
+								id="datoGrupo" required>
+									<option th:each="g:${grupos}" selected th:value="${g.grupo}" th:text="${g.grupo}"></option>
+							</select>
+						</div>
+
+						<div class="col-sm-4">
+							<label>Actividad:</label> <select class="form-control"
+								name="actividad" id="dataActividad" required>
+							</select>
+						</div>
+					</div>
+					<hr>
+					<div class="table-responsive">
+						<table class="table table-hover table-bordered" id="TableGEstu">
+							<thead class='header text-center' style='background-color: #03729B'>
+								<tr id='color1'>
+									<th>No</th>
+									<th>Nombre</th>
+									<th>Apellido</th>
+									<th>Nota</th>
+									<th>obcervacion</th>
+								</tr>
+							</thead>
+							<tbody id="DataEstudiante">
+							</tbody>
+						</table>
+					</div>
+					<!-- Modal footer -->
+					<div class="modal-footer">
+						<button id="guardarNota" type="button" class="btn btn-primary"
+							data-dismiss="modal">Guardar</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- enlaces de javascript -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<!--Script for dataTable-->
+	<script
+		src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+	<script
+		src=" http://ajax.aspnetcdn.com/ajax/jquery.ui/1.12.1/jquery-ui.min.js"></script>
+	<script th:src="@{/jsAjax/nota.js}"></script>
+</body>
+</html>
